@@ -1,0 +1,466 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>获取城市列表和URL · WHUWZP's Go-Learning</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="whuwzp">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.html" />
+    
+    
+    <link rel="prev" href="1.html" />
+    
+
+    <script src="gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    
+        <link rel="shortcut icon" href='img/sys/wiki.jpg' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='img/sys/wiki.jpg' type="image/x-icon">
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="whuwzp.github.io/golearning" target="_blank" class="custom-link">Go-Learning</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">简介</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">爬虫项目</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    爬取地图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    获取城市列表和URL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    单任务版爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >获取城市列表和URL</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p>MOOC &#x7F51;&#x722C;&#x866B;&#x9879;&#x76EE;&#xFF0C;&#x7167;&#x7740;&#x5927;&#x795E;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E2A;&#x662F;&#x542C;&#x8BFE;&#x7B14;&#x8BB0;&#x5427;&#x3002;</p>
+<p>&#x672C;&#x8282;&#x662F;&#x5229;&#x7528;<strong>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</strong>&#x627E;&#x51FA;&#x722C;&#x53D6;&#x5185;&#x5BB9;&#x4E2D;&#x7684;&#x57CE;&#x5E02;&#x548C;URL&#x3002;</p>
+</blockquote>
+<h2 id="&#x539F;&#x7406;"><a name="&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x539F;&#x7406;</h2>
+<h3 id="&#x6982;&#x8981;"><a name="&#x6982;&#x8981;" class="anchor-navigation-ex-anchor" href="#&#x6982;&#x8981;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6982;&#x8981;</h3>
+<p>&#x4E0A;&#x4E00;&#x8282;&#x5927;&#x795E;&#x8BB2;&#x5230;&#x4E86;&#x722C;&#x53D6;&#x4E86;&#x7F51;&#x9875;&#x5185;&#x5BB9;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x627E;&#x51FA;&#x57CE;&#x5E02;&#x5217;&#x8868;&#x548C;url&#xFF0C;&#x4EE5;&#x4FBF;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x4EBA;&#x5458;&#x722C;&#x53D6;&#x3002;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>CSS&#x9009;&#x62E9;&#x5668;</li>
+<li>xpath</li>
+<li>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</li>
+</ol>
+<p>&#x5927;&#x795E;&#x9009;&#x62E9;&#x4E86;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 id="&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;"><a name="&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</h3>
+<h4 id="&#x7B80;&#x5355;&#x793A;&#x4F8B;"><a name="&#x7B80;&#x5355;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x793A;&#x4F8B;</h4>
+<pre class="language-"><code class="lang-go"><span class="token keyword">package</span> main
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">&quot;regexp&quot;</span>
+    <span class="token string">&quot;fmt&quot;</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">const</span> text  <span class="token operator">=</span>  <span class="token string">`my name is whuwzp@sina.com
+    name2 is whuwzp@163.com
+    name3 is whuwzp@126.com
+    `</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    re <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">MustCompile</span><span class="token punctuation">(</span><span class="token string">&quot;whuwzp&quot;</span><span class="token punctuation">)</span>
+    match <span class="token operator">:=</span> re<span class="token punctuation">.</span><span class="token function">FindString</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//output</span>
+whuwzp
+</code></pre>
+<p>&#x5176;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li><strong>Mustcompile</strong>&#x76F8;&#x6BD4;Compile&#x662F;&#x5185;&#x5D4C;&#x4E86;&#x5F02;&#x5E38;&#x62A5;&#x9519;&#x3002;</li>
+<li><strong>FindString</strong>&#x6709;&#x5F88;&#x591A;&#x53D8;&#x79CD;&#xFF0C;&#x5982;<strong>FindAllStringSubmatch</strong>&#xFF0C;&#x8868;&#x793A;&#x627E;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6240;&#x6709;&#x5B50;&#x5339;&#x914D;&#x9879;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;[][]string&#xFF0C;&#x53D8;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#x53BB;&#x6389;All&#xFF0C;&#x53BB;&#x6389;String&#xFF08;&#x90A3;&#x5C31;&#x662F;&#x627E;&#x51FA;&#x7C7B;&#x578B;&#x4E3A;[]byte&#x7684;&#xFF09;&#xFF0C;Submatch&#x4E3A;&#x81EA;&#x5339;&#x914D;&#xFF0C;&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x5229;&#x7528;<code>go doc</code>&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x5404;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</li>
+</ul>
+<h4 id="&#x5339;&#x914D;&#x7279;&#x5B9A;&#x5B57;&#x7B26;"><a name="&#x5339;&#x914D;&#x7279;&#x5B9A;&#x5B57;&#x7B26;" class="anchor-navigation-ex-anchor" href="#&#x5339;&#x914D;&#x7279;&#x5B9A;&#x5B57;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5339;&#x914D;&#x7279;&#x5B9A;&#x5B57;&#x7B26;</h4>
+<ol>
+<li><strong>``</strong>&#x7528;&#x6CD5;&#xFF1A;&#x8003;&#x8651;&#x5B57;&#x7B26;&#x4E2D;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x5230;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#xFF0C;&#x6240;&#x4EE5;go&#x91C7;&#x7528;<strong>``</strong>&#x7684;&#x65B9;&#x6CD5;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x8FC7;&#x591A;&#x7684;<strong>\</strong>&#xFF08;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#xFF09;&#xFF1B;</li>
+<li><strong>.+</strong>&#x7528;&#x6CD5;&#xFF1A;&#x8868;&#x793A;&#x901A;&#x914D;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#xFF08;&#x6570;&#x91CF;&#x5927;&#x4E8E;0&#xFF09;&#xFF1B;</li>
+<li><strong>.*</strong>&#x7528;&#x6CD5;&#xFF1A;&#x8868;&#x793A;&#x901A;&#x914D;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#xFF08;&#x6570;&#x91CF;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;0&#xFF09;&#xFF1B;</li>
+<li><strong>[]</strong>&#x7528;&#x6CD5;&#xFF1A;&#x8868;&#x793A;&#x901A;&#x914D;&#x5728;&#x67D0;&#x533A;&#x95F4;&#x5185;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x5982;<code>[0-9a-zA-Z]</code>&#x8868;&#x793A;&#x901A;&#x914D;&#x6570;&#x5B57;&#x548C;&#x5927;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;<code>[0-9a-zA-Z]+</code>&#x5219;&#x8868;&#x793A;&#x4EFB;&#x610F;&#x4E2A;&#x6570;&#x5B57;&#x548C;&#x5927;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#xFF1B;</li>
+<li><strong><sup><a href="#fn_x" id="reffn_x">x</a></sup></strong>&#xFF1A;&#x8868;&#x793A;&#x901A;&#x914D;&#x9664;&#x4E86;&#x7B26;&#x53F7;x&#x5916;&#x7684;&#x5176;&#x4ED6;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#xFF1B;</li>
+<li><strong>()</strong>&#x7528;&#x6CD5;&#xFF1A;&#x8868;&#x793A;&#x6458;&#x53D6;&#x7279;&#x5B9A;&#x7684;&#x5C0F;&#x6BB5;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5728;<strong>FindAllStringSubmatch</strong>&#x51FD;&#x6570;&#x4E2D;&#x53EF;&#x4EE5;&#x4F53;&#x73B0;&#x8FD9;&#x4E2A;&#x7684;&#x7528;&#x5904;&#xFF1B;</li>
+</ol>
+<h2 id="&#x9879;&#x76EE;"><a name="&#x9879;&#x76EE;" class="anchor-navigation-ex-anchor" href="#&#x9879;&#x76EE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9879;&#x76EE;</h2>
+<p>&#x4E0A;&#x4E00;&#x6B65;&#x722C;&#x53D6;&#x4E86;&#x7F51;&#x9875;&#x5185;&#x5BB9;&#xFF0C;&#x8FD9;&#x4E2A;&#x5728;&#x5185;&#x5BB9;&#x4E2D;&#x627E;&#x51FA;&#x57CE;&#x5E02;&#x5217;&#x8868;&#x548C;URL&#x7B49;&#x3002;</p>
+<h3 id="&#x6574;&#x4F53;&#x4EE3;&#x7801;"><a name="&#x6574;&#x4F53;&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#&#x6574;&#x4F53;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6574;&#x4F53;&#x4EE3;&#x7801;</h3>
+<p>&#x5927;&#x795E;&#x8FD9;&#x4E2A;&#x662F;&#x5B9E;&#x73B0;&#x4E86;&#x6253;&#x5370;&#x51FA;&#x6240;&#x6709;&#x7684;&#x57CE;&#x5E02;&#x548C;&#x76F8;&#x5E94;&#x7684;URL&#x3002;</p>
+<pre class="language-"><code class="lang-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">&quot;net/http&quot;</span>
+    <span class="token string">&quot;fmt&quot;</span>
+    <span class="token string">&quot;io/ioutil&quot;</span>
+    <span class="token string">&quot;golang.org/x/text/transform&quot;</span>
+    <span class="token string">&quot;golang.org/x/net/html/charset&quot;</span>
+    <span class="token string">&quot;io&quot;</span>
+    <span class="token string">&quot;golang.org/x/text/encoding&quot;</span>
+    <span class="token string">&quot;bufio&quot;</span>
+    <span class="token string">&quot;regexp&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> InitUrl  <span class="token operator">=</span>   <span class="token string">&quot;http://city.zhenai.com&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    resp<span class="token punctuation">,</span> err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span>
+        InitUrl<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">defer</span> resp<span class="token punctuation">.</span>Body<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> resp<span class="token punctuation">.</span>StatusCode <span class="token operator">!=</span> http<span class="token punctuation">.</span>StatusOK <span class="token punctuation">{</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;error! statuscode = &quot;</span><span class="token punctuation">,</span> resp<span class="token punctuation">.</span>StatusCode<span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+
+    utf8Reader <span class="token operator">:=</span> transform<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>Body<span class="token punctuation">,</span> <span class="token function">DetermineEncoding</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>Body<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">NewDecoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    all<span class="token punctuation">,</span> err <span class="token operator">:=</span> ioutil<span class="token punctuation">.</span><span class="token function">ReadAll</span><span class="token punctuation">(</span>utf8Reader<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//fmt.Printf(&quot;%s\n&quot;, all)</span>
+    <span class="token function">PrintCityList</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>all<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">PrintCityList</span><span class="token punctuation">(</span>all <span class="token builtin">string</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+    re <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">MustCompile</span><span class="token punctuation">(</span><span class="token string">`&lt;a href=&quot;(http://city.zhenai.com/[a-z0-9]+)&quot;[^&gt;]*&gt;([^&lt;]+).*`</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//FindAllStringSubmatch&#x4E2D;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;</span>
+    <span class="token comment" spellcheck="true">//&#x8868;&#x793A;&#x8981;&#x627E;&#x591A;&#x5C11;&#x4E2A;&#xFF0C;-1&#x8868;&#x793A;&#x627E;&#x51FA;&#x6240;&#x6709;</span>
+    match <span class="token operator">:=</span> re<span class="token punctuation">.</span><span class="token function">FindAllStringSubmatch</span><span class="token punctuation">(</span>all<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> m <span class="token operator">:=</span> <span class="token keyword">range</span> match <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//m[2]&#x662F;&#x57CE;&#x5E02;&#xFF0C;m[1]&#x662F;URL</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;City: %s\t\t\t | URL: %s\n&quot;</span><span class="token punctuation">,</span> m<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> m<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">DetermineEncoding</span><span class="token punctuation">(</span>r io<span class="token punctuation">.</span>Reader<span class="token punctuation">)</span> encoding<span class="token punctuation">.</span>Encoding <span class="token punctuation">{</span>
+    bytes<span class="token punctuation">,</span> err <span class="token operator">:=</span> bufio<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Peek</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    e<span class="token punctuation">,</span> <span class="token boolean">_</span><span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> charset<span class="token punctuation">.</span><span class="token function">DetermineEncoding</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> e
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x4E0B;&#x4E00;&#x6B65;"><a name="&#x4E0B;&#x4E00;&#x6B65;" class="anchor-navigation-ex-anchor" href="#&#x4E0B;&#x4E00;&#x6B65;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0B;&#x4E00;&#x6B65;</h3>
+<p>&#x4E0B;&#x4E00;&#x6B65;&#x5C31;&#x53EF;&#x4EE5;&#x9012;&#x5F52;&#x722C;&#x53D6;URL&#xFF0C;&#x7EE7;&#x7EED;&#x91C7;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x627E;&#x51FA;<strong>&#x4EBA;</strong>&#x548C;&#x5979;&#x5BF9;&#x5E94;&#x7684;&#x4FE1;&#x606F;&#x4E86;&#x3002;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; whuwzp.top 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x672C;&#x6587;&#x6863;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2018-06-28 22:53:02
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 爬取地图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.html" class="navigation navigation-next " aria-label="Next page: 单任务版爬虫">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"获取城市列表和URL","date":"2018-04-13T18:35:33.000Z","tags":["go","语言"],"categories":"科研","mathjax":true,"level":"2.2","depth":1,"next":{"title":"单任务版爬虫","level":"2.3","depth":1,"path":"3.md","ref":"3.md","articles":[]},"previous":{"title":"爬取地图","level":"2.1","depth":1,"path":"1.md","ref":"1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","prism","-highlight","-katex","mathjax","include-codeblock","splitter","expandable-chapters-small","simple-page-toc","anchors","anchor-navigation-ex@0.1.8","todo","copy-code-button","alerts","tbfed-pagefooter","favicon","graph"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © whuwzp.top 2018","modify_label":"本文档修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"graph":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"isShowTocTitleIcon":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":{"shortcut":"img/sys/wiki.jpg","bookmark":"img/sys/wiki.jpg"},"alerts":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":true,"fixlang":false,"lang":"","template":"ace","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"search-plus":{}},"theme":"default","author":"whuwzp","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"WHUWZP's Go-Learning","language":"zh-hans","output.name":"site","links":{"sidebar":{"Go-Learning":"whuwzp.github.io/golearning"}},"gitbook":"3.2.3","description":"各类信息汇总wiki系统"},"file":{"path":"2.md","mtime":"2018-06-28T14:53:02.998Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-12T14:12:30.085Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
